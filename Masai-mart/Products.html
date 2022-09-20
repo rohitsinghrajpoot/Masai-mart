@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+      <link rel="stylesheet" href="./css/Products.css">
+</head>
+<body>
+    <h1 onClick="showdata()">Click here</h1>
+    
+    <div id="a"></div>
+   
+</body>
+</html>
+<script>
+    let urlProducts = "https://dbioz2ek0e.execute-api.ap-south-1.amazonaws.com/mockapi/get-products"
+    // var container = document.getElementById("#container").value;
+
+
+    async function showdata(){
+      let res = await fetch(` https://dbioz2ek0e.execute-api.ap-south-1.amazonaws.com/mockapi/get-products`)
+    let data = await res.json()
+    console.log("data",data)
+    dom(data)
+    } 
+    
+    function dom(d){
+        for(var i=0;i<d.data.length;i++){
+            let image =document.createElement("img")
+  let x=d.data[i]['image']
+  image.src=`${x}`
+  let name =document.createElement("p")
+  name.innerText=d.data[i]["brand"]
+  let title =document.createElement("p")
+  title.innerText=d.data[i]['title']
+  let category =document.createElement("p")
+  category.innerText=d.data[i]['category']
+  let price =document.createElement("p")
+  price.innerText=d.data[i]['price']
+  let btn =document.createElement("button")
+  btn.innerText="add to wishlist"
+  let div = document.createElement("div")
+  div.append(name,title,category,price,btn)
+
+  let obj={
+     img:d.data[i]["image"],
+     name:d.data[i]["brand"],
+     title:d.data[i]['title'],
+     price:d.data[i]['price']
+  }
+ let arr=[]
+ arr.push(obj)
+  localStorage.setItem("wish",JSON.stringify(arr))
+  document.getElementById("a").append(image,div)
+
+        }
+    }
+
+</script>

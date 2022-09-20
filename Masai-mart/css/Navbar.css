@@ -1,0 +1,22 @@
+.navBar_Div{
+    border:1px solid teal;
+    background: red;
+    color:white;
+    display: flex;
+    justify-content: space-between;
+    padding-left: 15%;
+    padding-right: 15%;
+    align-items: center;
+    border-bottom: 1px solid white;
+    padding-top: 1.5rem;
+    padding-bottom: .5rem;
+}
+
+a{
+    text-decoration: none;
+    padding-left: 25px;
+
+}
+a:hover{
+    color:black;
+}

@@ -1,0 +1,17 @@
+#a{
+    border :1px solid teal;
+    display:flex
+}
+
+@media only screen and (min-width:375px) and (max-width:768px) {
+    #a {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+ @media only screen and (min-width:0px) and (max-width:375px) {
+    #a {
+      width: 100%;
+      grid-template-columns: repeat(1, 1fr);
+    }
+}

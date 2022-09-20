@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   <div id="cont"></div>
+</body>
+</html>
+<script>
+    var static_array= JSON.parse(localStorage.getItem("Wish"))||[]
+ displayCart(static_array)
+ 
+  
+  function displayCart(static_array){
+      
+      static_array.map(function(elem){
+     var div= document.createElement("div")
+    //   div.id="getdata"
+      var imag=document.createElement("img")
+        // imag.id="lw"
+         
+     var p =document.createElement("p")
+      
+     var p2=document.createElement("p")
+     
+     var p3 =document.createElement("p")
+
+     imag.src = elem.img;
+      p.textContent=elem.name;
+      p2.textContent=elem.title;
+      p3.textContent=elem.price;
+      div.append(imag,p,p2,p3)
+      document.getElementById("cont").append(div)
+
+      })
+      
+  }
+</script>
